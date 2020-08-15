@@ -18,6 +18,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
+            // type code here
+            print("Hello")
+        }
+
+    }
+    
     @IBAction func buttonPressed(_ sender: Any) {
         count += 1
         counterLabel.text = String(count)
