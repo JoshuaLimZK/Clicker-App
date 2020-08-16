@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    
     var count = 0
     var currentTime: Double = 0
     
@@ -24,6 +26,7 @@ class ViewController: UIViewController {
             // type code here
             self.currentTime += 0.1
             print(self.currentTime)
+            self.timerLabel.text = "\(self.currentTime)s"
             
         }
 
