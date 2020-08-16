@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var counterLabel: UILabel!
     var count = 0
+    var currentTime: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             // type code here
-            print("Hello")
+            self.currentTime += 0.1
+            print(self.currentTime)
+            
         }
 
     }
