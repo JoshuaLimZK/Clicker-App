@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
             // type code here
             self.currentTime += 0.1
@@ -35,6 +35,17 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: Any) {
         count += 1
         counterLabel.text = String(count)
+        if count == 50 {
+            performSegue(withIdentifier: "show results", sender: nil)
+        }
     }
-    
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "show results" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.time = currentTime
+        }
+
+    }
 }
